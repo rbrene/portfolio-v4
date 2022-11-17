@@ -11,7 +11,7 @@ import { PortfolioData } from '../helpers/data';
 
 const Portfolio = () => {
     return (
-        <Section id='portfolio'>
+        <Section id='projects'>
             <PortfolioArticle>
                 <PortfolioFlexContainer>
                     <PortfolioSVG />

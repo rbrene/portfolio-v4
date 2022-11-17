@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Section } from '../styled-components/index';
 import { AboutArticle } from '../styled-components/layouts/articles/index';
 import SectionHeading from '../components/Headings/SectionHeading';
@@ -13,6 +13,7 @@ import { useSpring } from '@react-spring/web';
 
 
 const About = () => {
+    const aboutRef = useRef(null);
     const { ref, entry } = useInView({
         threshold: 0.5
     })
@@ -43,7 +44,7 @@ const About = () => {
         }
     })
     return (
-        <Section id='about'>
+        <Section id='about' ref={aboutRef}>
             <BackgroundImage src={aboutBgImage} />
             <AboutArticle>
                 <AboutFlexLayout>

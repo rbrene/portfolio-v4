@@ -7,7 +7,7 @@ export const Form = styled(animated.form)`
     position: relative;
     width: 100%;
     height: auto;
-    padding: ${rem(16)};
+    padding: ${rem(24)};
     background: var(--primaryDarkAccent);
     z-index: inherit;
 
@@ -25,7 +25,7 @@ export const FormField = styled(animated.fieldset)`
     justify-content: center;
     border: none;
     gap: ${rem(8)};
-    
+
     ${min('mobile')} {
         &:nth-child(1) {
             grid-area: fullName;
@@ -56,14 +56,15 @@ export const Legend = styled(animated.legend)`
 
 export const Label = styled(animated.label)`
     position: relative;
-    font-size: ${rem(12)};
+    width: max-content;
+    font-size: clamp(${rem(8)}, 2vw, ${rem(12)});
     font-family: 'Poppins SemiBold';
     letter-spacing: 0.2ch;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: ${rem(16)};
-    opacity: 0.75;
+    color: var(--primaryLightAccent);
     z-index: inherit;
 `;
 
@@ -75,8 +76,9 @@ export const Error = styled(animated.small)`
 
 export const Input = styled(animated.input)`
     position: relative;
-    padding: ${em(4)} ${em(8)};
-    font-size: ${rem(14)};
+    width: 100%;
+    padding-block: ${em(4)};
+    font-size: clamp(${rem(12)}, 2vw, ${rem(14)});
     font-family: 'Poppins Regular';
     border: none;
     outline: none;
@@ -88,11 +90,11 @@ export const Input = styled(animated.input)`
 
     &:focus,
     &:active {
-        border-bottom: 2px solid #00ffc8;
+        border-bottom: 2px solid rgb(0 255 200 / 0.5);
     }
 
     &[data-error=true] {
-        border-bottom: 2px solid #ff004c;
+        border-bottom: 2px solid rgb(255 0 76 / 0.5);
     }
 `;
 
@@ -100,8 +102,8 @@ export const Textarea = styled(animated.textarea)`
     position: relative;
     width: 100%;
     height: ${rem(96)};
-    padding: ${em(4)} ${em(8)};
-    font-size: ${rem(14)};
+    padding-block: ${em(4)};
+    font-size: clamp(${rem(12)}, 2vw, ${rem(14)});
     font-family: 'Poppins Regular';
     outline: none;
     border: none;
@@ -114,10 +116,10 @@ export const Textarea = styled(animated.textarea)`
 
     &:focus,
     &:active {
-        border-bottom: 2px solid #00ffc8;
+        border-bottom: 2px solid rgb(0 255 200 / 0.5);
     }
     &[data-error=true] {
-        border-bottom: 2px solid #ff004c;
+        border-bottom: 2px solid rgb(255 0 76 / 0.5);
     }
 `;
 

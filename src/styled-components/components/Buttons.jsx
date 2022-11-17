@@ -5,21 +5,32 @@ import { rem, em, min } from '../../helpers/units';
 
 const Button = styled(animated.button)`
     position: relative;
-    font: inherit;
     z-index: inherit;
+
+    ${min('tablet')} {
+        cursor: pointer;
+    }
+
 `;
 
 export default Button;
 
 export const Submit = styled(Button)`
-    padding: ${em(16)};
+    padding-inline: ${em(16)};
+    padding-block: clamp(${em(16)}, 3vw, ${em(24)});
     font-size: clamp(${rem(12)}, 2vw, ${rem(14)});
+    font-size: clamp(${rem(8)}, 2vw, ${rem(12)});
     font-family: 'Poppins SemiBold';
     text-transform: uppercase;
     letter-spacing: 0.5ch;
     border: 1px solid var(--primaryButton);
     background: var(--primaryButton);
     color: var(--primaryButtonAccent);
+    transition: filter 250ms ease-in-out;
+
+    &:hover {
+        filter: brightness(120%);
+    }
 
     ${min('mobile')} {
         width: max-content;
@@ -36,4 +47,10 @@ export const SuccessButton = styled(Button)`
     border: 1px solid var(--primaryButton);
     background: var(--primaryButton);
     color: var(--primaryButtonAccent);
+    transition: filter 250ms ease-in-out;
+
+    &:hover {
+        filter: brightness(120%);
+    }
+
 `;

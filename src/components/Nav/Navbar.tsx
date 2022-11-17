@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavbarPropsTypes } from '../../interfaces/interfaces';
 import { Nav, List, ListItem } from '../../styled-components/components/Nav';
+import NavLink from './NavLink';
 import { useInView } from 'react-intersection-observer';
 import { useTrail } from '@react-spring/web';
 
@@ -30,7 +31,7 @@ const Navbar = ({ links }: NavbarPropsTypes) => {
                                 key={links[index].id}
                                 style={props}
                             >
-                                {links[index].title}
+                                <NavLink url={links[index].url} title={links[index].title}/>
                             </ListItem>
                         )
                     })

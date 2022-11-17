@@ -13,7 +13,9 @@ const Grid = styled(Container)`
 export default Grid;
 
 export const HeroGrid = styled(Grid)`
+    grid-template-columns: 100%;
     grid-template-rows: 100vh 100vh max-content 100vh;
+    grid-auto-rows: repeat(4, minmax(100vh, max-content));
     gap: 20vh;
 `;
 

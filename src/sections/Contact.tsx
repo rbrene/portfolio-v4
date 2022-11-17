@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Section } from '../styled-components/index';
 import { ContactArticle } from '../styled-components/layouts/articles/index';
 import SectionHeading from '../components/Headings/SectionHeading';
@@ -9,8 +9,9 @@ import ContactForm from '../components/ContactForm';
 
 
 const Contact = () => {
+    const contactRef = useRef(null);
     return (
-        <Section id='contact'>
+        <Section id='contact' ref={contactRef}>
             <ContactArticle>
                 <ContactFlexLayout>
                     <ContactContainer>

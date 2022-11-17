@@ -13,8 +13,6 @@ const Article = styled(animated.article)`
 export default Article;
 
 export const HomeArticle = styled(Article)`
-    max-width: 100%;
-    height: 100%;
     padding: ${rem(32)};
     
     ${min('mobile')} {
@@ -23,8 +21,6 @@ export const HomeArticle = styled(Article)`
 `;
 
 export const AboutArticle = styled(Article)`
-    max-width: 100%;
-    height: 100%;
     padding: ${rem(32)};
     
     ${min('mobile')} {
@@ -33,8 +29,6 @@ export const AboutArticle = styled(Article)`
 `;
 
 export const PortfolioArticle = styled(Article)`
-    max-width: 100%;
-    height: 100%;
     padding: ${rem(32)};
     
     ${min('mobile')} {
@@ -43,7 +37,5 @@ export const PortfolioArticle = styled(Article)`
 `;
 
 export const ContactArticle = styled(Article)`
-    max-width: 100%;
-    height: 100%;
     padding: ${rem(32)};
 `;

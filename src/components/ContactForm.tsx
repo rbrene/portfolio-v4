@@ -8,6 +8,8 @@ import { FormContainer } from '../styled-components/layouts/containers/index';
 import { Form, FormField, Label, Error, Input, Textarea } from '../styled-components/components/Forms';
 import { Submit } from '../styled-components/components/Buttons';
 import SuccessModal from '../components/Modals/Success';
+import { useSpring } from '@react-spring/web';
+import { useInView } from 'react-intersection-observer';
 
 
 const ContactForm = () => {
@@ -73,9 +75,26 @@ const ContactForm = () => {
         }
 
     }
+    const { ref, entry } = useInView({
+        threshold: 0.4,
+    });
+
+    const spring = useSpring({
+        to: {
+            x: entry?.isIntersecting ? 0 : 32,
+            opacity: entry?.isIntersecting ? 1 : 0,
+        },
+        delay: 700,
+        config: {
+            mass: 5,
+            tension: 350,
+            friction: 56
+        }
+    })
+
 
     return (
-        <FormContainer>
+        <FormContainer ref={ref} style={spring}>
             <Form onSubmit={handleSubmit} ref={form}>
                 <ContactFormGrid>
                     <FormField>

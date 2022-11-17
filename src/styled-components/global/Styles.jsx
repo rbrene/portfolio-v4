@@ -47,7 +47,7 @@ body,
     color: var(--primaryLight);
     z-index: inherit;
     user-select: none;
-    overflow-x: hidden;
+    //overflow-x: hidden;
 }
 
 svg {

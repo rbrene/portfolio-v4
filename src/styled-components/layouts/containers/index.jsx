@@ -101,6 +101,9 @@ export const FormContainer = styled(animated.div)`
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    transform-style: preserve-3d;
+    transform-origin: right;
+    perspective: 1000px;
     z-index: inherit;
 `;
 
