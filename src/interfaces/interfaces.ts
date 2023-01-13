@@ -6,6 +6,14 @@ export interface NavbarPropsTypes {
     }[];
 }
 
+export interface NavbarItemPropTypes {
+    link: {
+        id: number;
+        url: string;
+        title: string;
+    }
+}
+
 export interface LinkPropsTypes {
     url: string;
     title: string;
@@ -77,4 +85,4 @@ export interface FormProps {
 export interface FormSuccessProps {
     success: boolean;
     setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};

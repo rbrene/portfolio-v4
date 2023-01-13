@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
-import { Section } from '../styled-components/index';
+import React from 'react';
+import { SectionsContext } from '../context/context';
+import { Section } from '../components/Section';
 import { ContactArticle } from '../styled-components/layouts/articles/index';
 import SectionHeading from '../components/Headings/SectionHeading';
 import { ContactSVG } from '../components/Headings/SVG';
@@ -9,9 +10,9 @@ import ContactForm from '../components/ContactForm';
 
 
 const Contact = () => {
-    const contactRef = useRef(null);
+    const { refs } = React.useContext(SectionsContext)!;
     return (
-        <Section id='contact' ref={contactRef}>
+        <Section id='contact' ref={refs.contact}>
             <ContactArticle>
                 <ContactFlexLayout>
                     <ContactContainer>

@@ -1,12 +1,14 @@
 import React from 'react';
+import { SectionsContext } from '../../context/context';
 import { NavbarPropsTypes } from '../../interfaces/interfaces';
 import { Nav, List, ListItem } from '../../styled-components/components/Nav';
-import NavLink from './NavLink';
 import { useInView } from 'react-intersection-observer';
 import { useTrail } from '@react-spring/web';
 
 
 const Navbar = ({ links }: NavbarPropsTypes) => {
+    const { refs } = React.useContext(SectionsContext)!;
+    const refsArray = Object.values(refs);
     const { ref, entry } = useInView({
         threshold: 0.8,
     })
@@ -18,6 +20,10 @@ const Navbar = ({ links }: NavbarPropsTypes) => {
         },
         delay: 850
     })
+    const click = (e: React.MouseEvent, ref: React.RefObject<HTMLDivElement | HTMLElement>) => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
 
     return (
         <Nav
@@ -29,9 +35,10 @@ const Navbar = ({ links }: NavbarPropsTypes) => {
                         return (
                             <ListItem
                                 key={links[index].id}
+                                onClick={(e: React.MouseEvent) => click(e, refsArray[index])}
                                 style={props}
                             >
-                                <NavLink url={links[index].url} title={links[index].title}/>
+                                {links[index].title}
                             </ListItem>
                         )
                     })

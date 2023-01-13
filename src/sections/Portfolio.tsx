@@ -1,5 +1,6 @@
 import React from 'react';
-import { Section } from '../styled-components/index';
+import { SectionsContext } from '../context/context';
+import { Section } from '../components/Section';
 import { PortfolioArticle } from '../styled-components/layouts/articles/index';
 import PortfolioFlexContainer from '../styled-components/layouts/flex/projects';
 import { PortfolioContainer, ProjectsContainer } from '../styled-components/layouts/containers/index';
@@ -10,8 +11,9 @@ import { PortfolioData } from '../helpers/data';
 
 
 const Portfolio = () => {
+    const { refs } = React.useContext(SectionsContext)!;
     return (
-        <Section id='projects'>
+        <Section id='projects' ref={refs.portfolio}>
             <PortfolioArticle>
                 <PortfolioFlexContainer>
                     <PortfolioSVG />

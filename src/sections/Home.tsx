@@ -1,5 +1,6 @@
 import React from 'react';
-import { Section } from '../styled-components/index';
+import { SectionsContext } from '../context/context';
+import { Section } from '../components/Section';
 import MainHeading from '../components/Headings/MainHeading';
 import Link from '../components/Links/Link';
 import { RaeesBreneSVG } from '../components/Headings/SVG';
@@ -9,9 +10,12 @@ import { HomeTextContainer } from '../styled-components/layouts/containers/index
 
 
 const Home = () => {
+    const { refs } = React.useContext(SectionsContext)!;
+
+    console.log(refs);
 
     return (
-        <Section id='home'>
+        <Section id='home' ref={refs.home}>
             <HomeArticle>
                 <HomeFlexLayout>
                     <RaeesBreneSVG />

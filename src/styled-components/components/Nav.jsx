@@ -37,22 +37,7 @@ export const ListItem = styled(animated.li)`
     perspective: 1000px;
     opacity: 0.8;
     z-index: inherit;
-`;
-
-export const Link = styled(animated.a)`
-    position: relative;
-    width: max-content;
-    font: inherit;
-    text-decoration: none;
-    color: inherit;
-    z-index: inherit;
     cursor: default;
-
-    &:visited,
-    &:active {
-        color: inherit;
-        text-decoration: none;
-    }
 
     ${min('tablet')} {
         cursor: pointer;
