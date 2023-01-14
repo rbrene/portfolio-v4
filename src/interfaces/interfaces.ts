@@ -17,7 +17,7 @@ export interface NavbarItemPropTypes {
 export interface LinkPropsTypes {
     url: string;
     title: string;
-    download?: boolean;
+    onClick?: Function;
 }
 
 export interface MainHeadingProps {

@@ -11,8 +11,10 @@ import { HomeTextContainer } from '../styled-components/layouts/containers/index
 
 const Home = () => {
     const { refs } = React.useContext(SectionsContext)!;
-
-    console.log(refs);
+    const click = (e: React.MouseEvent) => {
+        e.preventDefault();
+        refs.about.current?.scrollIntoView({ behavior: 'smooth' })
+    }
 
     return (
         <Section id='home' ref={refs.home}>
@@ -21,7 +23,11 @@ const Home = () => {
                     <RaeesBreneSVG />
                     <HomeTextContainer>
                         <MainHeading word="I'm a" highlight={['Web', 'Developer']} />
-                        <Link url='/' title='Explore' />
+                        <Link
+                            url='/'
+                            title='Explore'
+                            onClick={click}
+                        />
                     </HomeTextContainer>
                 </HomeFlexLayout>
             </HomeArticle>

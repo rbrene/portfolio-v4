@@ -1,11 +1,11 @@
 import React from 'react';
-import { LinkPropsTypes, ProjectLinkProps } from '../../interfaces/interfaces';
-import { Link as Wrapper, Line, Title, ProjectLink as PLink } from '../../styled-components/components/Links';
+import { LinkPropsTypes } from '../../interfaces/interfaces';
+import { Link as Wrapper, Line, Title } from '../../styled-components/components/Links';
 import { useInView } from 'react-intersection-observer';
 import { useSpring } from '@react-spring/web';
 
 
-const Link = ({ url, title, onClick }: LinkPropsTypes) => {
+const Download = ({ url, title }: LinkPropsTypes) => {
 
     const { ref, entry } = useInView({
         threshold: 1
@@ -28,10 +28,7 @@ const Link = ({ url, title, onClick }: LinkPropsTypes) => {
     })
 
     return (
-        <Wrapper
-            href={url}
-            onClick={onClick}
-        >
+        <Wrapper href={url} download>
             <Line ref={ref} style={lineSpring} />
             <Title ref={ref} style={titleSpring}>{title}</Title>
         </Wrapper>
@@ -39,9 +36,4 @@ const Link = ({ url, title, onClick }: LinkPropsTypes) => {
 };
 
 
-export default Link;
-
-
-export const ProjectLink = ({ url, icon }: ProjectLinkProps) => {
-    return <PLink href={url} target='_blank' rel='noopener noreferrer'>{icon}</PLink>;
-}
+export default Download;

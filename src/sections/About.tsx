@@ -11,8 +11,8 @@ import { P } from '../styled-components/global/Typography';
 import aboutBgImage from '../assets/images/IMG_20181010_035609.png';
 import { useInView } from 'react-intersection-observer';
 import { useSpring } from '@react-spring/web';
-import Link from '../components/Links/Link';
 import cv from '../assets/files/cv-december-2022-min.pdf';
+import Download from '../components/Links/Download';
 
 
 const About = () => {
@@ -59,7 +59,7 @@ const About = () => {
                         <P ref={ref} style={p2}>
                             It also pushes me to keep on learning new things. experiement with different languages and finding new ways of doing old things.
                         </P>
-                        <Link url={cv} title='Download CV' download />
+                        <Download url={cv} title='Download CV' />
                     </AboutTextContainer>
                     <AboutMeSVG />
                 </AboutFlexLayout>
