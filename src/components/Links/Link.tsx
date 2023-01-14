@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useSpring } from '@react-spring/web';
 
 
-const Link = ({ url, title }: LinkPropsTypes) => {
+const Link = ({ url, title, download }: LinkPropsTypes) => {
 
     const { ref, entry } = useInView({
         threshold: 1
@@ -28,7 +28,7 @@ const Link = ({ url, title }: LinkPropsTypes) => {
     })
 
     return (
-        <Wrapper href={url}>
+        <Wrapper href={url} download={download}>
             <Line ref={ref} style={lineSpring} />
             <Title ref={ref} style={titleSpring}>{title}</Title>
         </Wrapper>
@@ -39,6 +39,6 @@ const Link = ({ url, title }: LinkPropsTypes) => {
 export default Link;
 
 
-export const ProjectLink = ({url, icon}: ProjectLinkProps) => {
+export const ProjectLink = ({ url, icon }: ProjectLinkProps) => {
     return <PLink href={url} target='_blank' rel='noopener noreferrer'>{icon}</PLink>;
 }
