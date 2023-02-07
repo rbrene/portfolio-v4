@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
-import App from './ui-core/App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import Colors from './styles/global/colors';
 import Fonts from './styles/global/fonts';
 import Styles from './styles/global/styles';
+import { Loader } from './components/spec/Loader';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const App = lazy(() => import('./ui-core/App'));
+
 root.render(
   <React.StrictMode>
-    <Colors />
-    <Fonts />
-    <Styles />
-    <Router>
-      <App />
-    </Router>
+    <Suspense fallback={<Loader />}>
+      <Colors />
+      <Fonts />
+      <Styles />
+      <Router>
+        <App />
+      </Router>
+    </Suspense>
   </React.StrictMode>
 );
 

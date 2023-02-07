@@ -6,7 +6,7 @@ import { Projects } from './Projects';
 import { Contact } from './Contact';
 
 
-const Hero = () => {
+export const Hero = () => {
     return (
         <Grid>
             <Home />
@@ -16,5 +16,3 @@ const Hero = () => {
         </Grid>
     )
 };
-
-export default Hero;
