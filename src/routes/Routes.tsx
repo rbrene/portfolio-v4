@@ -1,13 +1,26 @@
-import React from 'react';
+import { Suspense, lazy } from 'react';
 import { Routes as Switch, Route } from 'react-router-dom';
-import Hero from './Hero';
+import { Sections } from '../components/context/SectionRefs';
+import { Main } from '../styles/components/common/main';
 
+
+const Hexagon = lazy(() => import('../components/spec/Hexagon'));
+const Navbar = lazy(() => import('../components/spec/Navbar'));
+const Hero = lazy(() => import('./sections'));
 
 const Routes = () => {
     return (
-        <Switch>
-            <Route path='/' element={<Hero />} />
-        </Switch>
+        <Suspense fallback={<p children='Loading...' />}>
+            <Hexagon />
+            <Sections>
+                <Navbar />
+                <Main>
+                    <Switch>
+                        <Route path='/' element={<Hero />} />
+                    </Switch>
+                </Main>
+            </Sections>
+        </Suspense>
     )
 };
 
