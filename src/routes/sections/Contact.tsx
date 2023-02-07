@@ -16,8 +16,6 @@ import { checkForm, validate } from '../../helpers/validation';
 import { Success } from '../../components/spec/Success';
 import emailjs from '@emailjs/browser';
 
-// TODO: add error handling to contact form
-// TODO: send form
 
 export const Contact = () => {
     const device = useDeviceQuery();

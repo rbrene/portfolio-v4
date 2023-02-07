@@ -1,6 +1,7 @@
-import { Suspense, lazy } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import { Routes as Switch, Route } from 'react-router-dom';
 import { Sections } from '../components/context/SectionRefs';
+import { Loader } from '../components/spec/Loader';
 import { Main } from '../styles/components/common/main';
 
 
@@ -9,8 +10,9 @@ const Navbar = lazy(() => import('../components/spec/Navbar'));
 const Hero = lazy(() => import('./sections'));
 
 const Routes = () => {
+
     return (
-        <Suspense fallback={<p children='Loading...' />}>
+        <Suspense fallback={<Loader />}>
             <Hexagon />
             <Sections>
                 <Navbar />

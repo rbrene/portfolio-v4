@@ -25,6 +25,8 @@ export const Field = styled(animated.fieldset)`
 
 export const Label = styled(animated.label)`
     position: relative;
+    width: 100%;
+    padding-right: ${rem(8)};
     font-size: ${rem(10)};
     font-family: inherit;
     font-variation-settings: 'wght' 500;
@@ -32,6 +34,7 @@ export const Label = styled(animated.label)`
     letter-spacing: 0.2ch;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: ${rem(8)};
     z-index: inherit;
 
@@ -83,8 +86,12 @@ export const Textarea = styled(animated.textarea)`
 
 export const Error = styled(animated.small)`
     position: relative;
-    font-size: ${rem(8)};
+    font-size: ${rem(6)};
     font-variation-settings: 'wght' 800;
     color: #ff6e9a;
     z-index: inherit;
+
+    @media ${media.mobile.min} {
+        font-size: ${rem(8)};
+    }
 `;
