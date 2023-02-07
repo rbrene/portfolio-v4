@@ -5,7 +5,7 @@ import { Padding } from '../../../styles/utilities/padding';
 import { NavList } from './List';
 
 
-export const Navbar = () => {
+const Navbar = () => {
 
     return (
         <Header>
@@ -17,3 +17,5 @@ export const Navbar = () => {
         </Header>
     )
 };
+
+export default Navbar;
