@@ -26,7 +26,7 @@ export const Loader = () => {
             <FlexAlign $alignItems='center' $justifyContent='center'>
                 <Wrapper>
                     <FlexAlign>
-                        {trail.map(item => <Dot style={item} />)}
+                        {trail.map((item, index) => <Dot key={index} style={item} />)}
                     </FlexAlign>
                 </Wrapper>
             </FlexAlign>

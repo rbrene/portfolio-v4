@@ -8,6 +8,8 @@ html {
     width: 100vw;
     height: 100vh;
     font-size: 100%;
+    font-family: 'var-karla',  sans-serif;
+    font-display: swap;
     box-sizing: border-box;
     z-index: 0;
 }

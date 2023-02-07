@@ -3,12 +3,10 @@ import { ProjectCard } from '../../../types/components/project';
 import { Project as Card, Header, Body, Footer, Layout, Tools, FooterLayout, Tool, Description, CTA } from '../../../styles/components/spec/project';
 import { FlexAlign } from '../../../styles/layouts/flex';
 import { Padding, PaddingBlock } from '../../../styles/utilities/padding';
-import { useDeviceQuery } from '../../../hooks/useDeviceQuery';
 import { Link } from '../../common/Link';
 
 
 export const Project: React.FC<ProjectCard> = ({ project }) => {
-    const device = useDeviceQuery();
 
     return (
         <Card>
