@@ -64,7 +64,7 @@ export const About = () => {
                                 ref={ref}
                                 style={p2}
                             >
-                                Additionally, I am knowledgeable in Python, and have used the Django framework. It is my professional aspiration to stay abreast of the latest web technologies and to come up with creative coding solutions to common or difficult problems that can make the lives of people simpler.
+                                Additionally, I am knowledgeable in Python, and have used the Django framework. It is my professional aspiration to stay abreast of the latest technologies and to come up with creative coding solutions to common or difficult problems that can make the lives of people simpler.
                             </P>
                         </FlexAlign>
                     </Padding>
