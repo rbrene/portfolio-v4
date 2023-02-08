@@ -55,7 +55,7 @@ export const About = () => {
                                 ref={ref}
                                 style={p1}
                             >
-                                I have a strong ambition to become a web developer and have been engaging in that pursuit for at least three years. I have a good understanding of JavaScript and my experience includes utilizing the React framework.
+                                I have a strong ambition to become a software/web developer and have been engaging in that pursuit for at least three years. I have a good understanding of JavaScript and my experience includes utilizing the React framework.
                             </P>
                             <P
                                 $width={{ mobile: 64, tablet: 64 }}
