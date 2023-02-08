@@ -9,7 +9,7 @@ export const Projects: ProjectsList = [
         },
         tag: ['frontendmentor'],
         title: 'Interactive NFT Preview Card',
-        description: 'A challenge from the frontendmentor platform to re-create a NFT preview card component.',
+        description: 'A challenge from the frontendmentor platform to re-create an NFT preview card component.',
         tools: ['react', 'styled-components']
     },
     {
@@ -31,7 +31,7 @@ export const Projects: ProjectsList = [
         },
         tag: ['CRUD', 'light/dark'],
         title: 'Shopping List CRUD Application',
-        description: 'A web application with CRUD functionality used to record and calculate groceries.',
+        description: 'A web application with CRUD functionality used to record groceries for grocery shopping.',
         tools: ['react', 'styled-components', 'react-spring']
     },
     {
@@ -64,7 +64,7 @@ export const Projects: ProjectsList = [
         },
         tag: [],
         title: 'Portfolio Version 1.0',
-        description: 'My first real version of my portfolio website.',
+        description: 'My first real version of my portfolio website using react with styled-components.',
         tools: ['react', 'styled-components']
     }
 ];
