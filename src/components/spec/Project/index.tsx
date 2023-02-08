@@ -4,12 +4,28 @@ import { Project as Card, Header, Body, Footer, Layout, Tools, FooterLayout, Too
 import { FlexAlign } from '../../../styles/layouts/flex';
 import { Padding, PaddingBlock } from '../../../styles/utilities/padding';
 import { Link } from '../../common/Link';
+import { useInView } from 'react-intersection-observer';
+import { useSpring } from '@react-spring/web';
 
 
 export const Project: React.FC<ProjectCard> = ({ project }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+
+    const spring = useSpring({
+        to: {
+            opacity: inView ? 1 : 0,
+            scale: inView ? 1 : 0.5
+        },
+        delay: inView ? project.id * 100 : 0
+    })
 
     return (
-        <Card>
+        <Card
+            ref={ref}
+            style={spring}
+        >
             <Padding>
                 <Layout>
                     <Header>

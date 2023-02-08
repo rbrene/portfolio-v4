@@ -20,7 +20,12 @@ export const NavList: React.FC<NavListProps> = ({ items }) => {
         to: {
             opacity: 1
         },
-        delay: 250
+        config: {
+            mass: 5,
+            tension: 350,
+            friction: 40,
+            delay: 250,
+        }
     });
     const click = (e: React.MouseEvent, ref: React.RefObject<HTMLDivElement | HTMLElement>) => {
         ref.current?.scrollIntoView({ behavior: 'smooth' })

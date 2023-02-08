@@ -1,10 +1,9 @@
 import { useContext, useState, useRef } from 'react';
 import { SectionsContext } from '../../context';
-import { Button, Submit } from '../../components/common/Buttons';
+import { Button } from '../../components/common/Buttons';
 import { Section } from '../../components/common/Section';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
 import { Error, Field, Form, Input, Label, Textarea } from '../../styles/components/common/forms';
-import { H2, Title } from '../../styles/global/typography';
 import Article from '../../styles/layouts/articles';
 import { FlexAlign, FlexColumn } from '../../styles/layouts/flex';
 import { ContactGrid as Grid } from '../../styles/layouts/grids';
@@ -14,11 +13,26 @@ import { checkForm, validate } from '../../helpers/validation';
 import { Success } from '../../components/spec/Success';
 import emailjs from '@emailjs/browser';
 import { SVGHeading } from '../../components/common/SVGHeading';
+import { Heading } from '../../components/common/Headings';
+import { useInView } from 'react-intersection-observer';
+import { useSpring } from '@react-spring/web';
+
 
 
 export const Contact = () => {
     const device = useDeviceQuery();
     const { refs } = useContext(SectionsContext)!;
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+
+    const spring = useSpring({
+        to: {
+            opacity: inView ? 1 : 0,
+            y: inView ? 0 : 16
+        },
+        delay: 300
+    });
     const form = useRef<HTMLFormElement>(null);
     const [formData, setFormData] = useState<DataProps>({
         fullName: '',
@@ -80,10 +94,10 @@ export const Contact = () => {
                 <Article id='contact-article' $height={100}>
                     <Padding $padding={device === 'mobile' ? 16 : 32}>
                         <FlexAlign $direction='column' $alignItems='start' $justifyContent='center'>
-                            <Title> Get In Touch </Title>
-                            <H2> Contact Me </H2>
+                            <Heading size='title'> Get In Touch </Heading>
+                            <Heading size='h2'> Contact Me </Heading>
                             <Form onSubmit={submitForm} ref={form}>
-                                <FlexColumn $gap={4}>
+                                <FlexColumn $gap={4} ref={ref} style={spring}>
                                     <Field>
                                         <PaddingBlock $block={8}>
                                             <FlexAlign $direction='column' $alignItems='start' $justifyContent='center' $gap={8}>

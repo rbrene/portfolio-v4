@@ -49,6 +49,11 @@ const AboutMe = () => {
         to: {
             opacity: inView ? 1 : 0,
             x: inView ? 0 : -16
+        },
+        config: {
+            mass: 5,
+            tension: 350,
+            friction: 40,
         }
     })
 

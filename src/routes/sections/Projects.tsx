@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { SectionsContext } from '../../context';
 import { Section } from '../../components/common/Section';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
-import { H2, Title } from '../../styles/global/typography';
 import Article from '../../styles/layouts/articles';
 import { FlexAlign } from '../../styles/layouts/flex';
 import { PortfolioGrid, PortfolioLayout as Layout } from '../../styles/layouts/grids';
@@ -10,6 +9,7 @@ import { Padding } from '../../styles/utilities/padding';
 import { Projects as ProjectData } from '../../data/projects';
 import { Project } from '../../components/spec/Project';
 import { SVGHeading } from '../../components/common/SVGHeading';
+import { Heading } from '../../components/common/Headings';
 
 
 export const Projects = () => {
@@ -28,10 +28,8 @@ export const Projects = () => {
                             $alignItems='start'
                             $justifyContent='center'
                         >
-                            <header>
-                                <Title> What I've Done </Title>
-                                <H2> My Projects </H2>
-                            </header>
+                            <Heading size='title'> What I've Done</Heading>
+                            <Heading size='h2'> My Projects </Heading>
                             <Layout>
                                 {ProjectData.map(project => <Project key={project.id} project={project} />)}
                             </Layout>

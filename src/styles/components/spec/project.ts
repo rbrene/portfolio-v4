@@ -9,7 +9,7 @@ export const Project = styled(animated.div)`
     position: relative;
     width: 100%;
     height: 100%;
-    background: var(--dark-accent);
+    background: linear-gradient(to top, #005066 0%, #044152 100%);
     border-radius: ${rem(3)};
     z-index: inherit;
 `;

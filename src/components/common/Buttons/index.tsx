@@ -4,9 +4,14 @@ import { PrimaryButton, SecondaryButton } from '../../../styles/components/commo
 import { ButtonBackground } from '../../../styles/utilities';
 import { useHover } from '../../../hooks/useHover';
 import { useSpring } from '@react-spring/web';
+import { useInView } from 'react-intersection-observer';
 
 
 export const Primary: React.FC<PrimaryButtonProps> = ({ type, onClick, children }) => {
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+
     const { hover, mouseEnter, mouseLeave } = useHover();
 
     const background = useSpring({
@@ -18,7 +23,13 @@ export const Primary: React.FC<PrimaryButtonProps> = ({ type, onClick, children 
 
     const scale = useSpring({
         to: {
-            scale: hover ? 0.98 : 1
+            scale: hover ? 0.98 : 1,
+            rotateX: inView ? '0deg' : '90deg'
+        },
+        config: {
+            mass: 5,
+            tension: 350,
+            friction: 40,
         }
     })
 
@@ -29,6 +40,7 @@ export const Primary: React.FC<PrimaryButtonProps> = ({ type, onClick, children 
             onMouseEnter={mouseEnter}
             onMouseLeave={mouseLeave}
             style={scale}
+            ref={ref}
         >
             <ButtonBackground
                 style={background}
