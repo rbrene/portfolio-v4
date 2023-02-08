@@ -1,35 +1,30 @@
 import { useContext } from 'react';
 import { SectionsContext } from '../../context';
-import { ReactComponent as RaeesBrene } from '../../assets/svg/raees-brene.svg';
 import { Button } from '../../components/common/Buttons';
 import { Section } from '../../components/common/Section';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
 import { H1, P, Title } from '../../styles/global/typography';
 import Article from '../../styles/layouts/articles';
-import { CallToAction, SVGContainer as Container } from '../../styles/layouts/containers';
-import { FlexAlign, FlexCenter } from '../../styles/layouts/flex';
+import { CallToAction } from '../../styles/layouts/containers';
+import { FlexAlign } from '../../styles/layouts/flex';
 import { HomeGrid as Grid } from '../../styles/layouts/grids';
-import { PaddingCustom, PaddingInline } from '../../styles/utilities/padding';
+import { PaddingInline } from '../../styles/utilities/padding';
+import { SVGHeading } from '../../components/common/SVGHeading';
 
 
 export const Home = () => {
     const { refs } = useContext(SectionsContext)!;
     const device = useDeviceQuery();
 
+    const calltoaction = (e: React.MouseEvent<HTMLButtonElement>) => {
+        refs.projects.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+
     return (
         <Section id='home' ref={refs.home}>
             <Grid>
 
-                <Container>
-                    <PaddingCustom
-                        $block={device === 'mobile' ? 16 : 32}
-                        $inline={device === 'mobile' ? 8 : 32}
-                    >
-                        <FlexCenter>
-                            <RaeesBrene />
-                        </FlexCenter>
-                    </PaddingCustom>
-                </Container>
+                <SVGHeading variant='home' />
 
                 <Article>
                     <PaddingInline $inline={device === 'mobile' ? 8 : 32}>
@@ -46,7 +41,12 @@ export const Home = () => {
                             </P>
                             <CallToAction>
                                 <FlexAlign>
-                                    <Button variant='primary'> Discover My Projects </Button>
+                                    <Button
+                                        variant='primary'
+                                        onClick={calltoaction}
+                                    >
+                                        Discover My Projects
+                                    </Button>
                                 </FlexAlign>
                             </CallToAction>
                         </FlexAlign>

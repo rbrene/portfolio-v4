@@ -16,6 +16,7 @@ const Btn = styled(animated.button)`
     border-width: 1px;
     border-radius: ${em(3)};
     z-index: inherit;
+    overflow: hidden;
     cursor: default;
 
     @media ${media.mobile.min} {
@@ -29,12 +30,12 @@ const Btn = styled(animated.button)`
 
 export const PrimaryButton = styled(Btn)`
     border-color: var(--accent-primary);
-    background: radial-gradient(circle at bottom right, var(--accent-primary) 0%, #2c94b1 100%);
-    color: var(--light-primary);
+    background-color: transparent;
+    color: var(--light-accent);
 `;
 
 export const SecondaryButton = styled(Btn)`
     border-color: var(--accent-primary);
-    background: transparent;
+    background-color: transparent;
     color: var(--accent-primary);
 `;

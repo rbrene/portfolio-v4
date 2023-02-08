@@ -1,16 +1,15 @@
 import { useContext } from 'react';
 import { SectionsContext } from '../../context';
-import { ReactComponent as Portfolio } from '../../assets/svg/portfolio.svg';
 import { Section } from '../../components/common/Section';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
 import { H2, Title } from '../../styles/global/typography';
 import Article from '../../styles/layouts/articles';
-import { SVGContainer } from '../../styles/layouts/containers';
-import { FlexAlign, FlexCenter } from '../../styles/layouts/flex';
+import { FlexAlign } from '../../styles/layouts/flex';
 import { PortfolioGrid, PortfolioLayout as Layout } from '../../styles/layouts/grids';
-import { Padding, PaddingCustom } from '../../styles/utilities/padding';
+import { Padding } from '../../styles/utilities/padding';
 import { Projects as ProjectData } from '../../data/projects';
 import { Project } from '../../components/spec/Project';
+import { SVGHeading } from '../../components/common/SVGHeading';
 
 
 export const Projects = () => {
@@ -20,13 +19,8 @@ export const Projects = () => {
     return (
         <Section id='projects' ref={refs.projects}>
             <PortfolioGrid>
-                <SVGContainer>
-                    <PaddingCustom $block={device === 'mobile' ? 16 : 32} $inline={device === 'mobile' ? 8 : 32}>
-                        <FlexCenter>
-                            <Portfolio />
-                        </FlexCenter>
-                    </PaddingCustom>
-                </SVGContainer>
+                <SVGHeading variant='portfolio' />
+
                 <Article>
                     <Padding $padding={device === 'mobile' ? 16 : 32}>
                         <FlexAlign

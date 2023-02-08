@@ -1,20 +1,19 @@
 import { useContext, useState, useRef } from 'react';
 import { SectionsContext } from '../../context';
-import { ReactComponent as ContactMe } from '../../assets/svg/contact.svg';
-import { Submit } from '../../components/common/Buttons';
+import { Button, Submit } from '../../components/common/Buttons';
 import { Section } from '../../components/common/Section';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
 import { Error, Field, Form, Input, Label, Textarea } from '../../styles/components/common/forms';
 import { H2, Title } from '../../styles/global/typography';
 import Article from '../../styles/layouts/articles';
-import { SVGContainer as Container } from '../../styles/layouts/containers';
-import { FlexAlign, FlexCenter, FlexColumn } from '../../styles/layouts/flex';
+import { FlexAlign, FlexColumn } from '../../styles/layouts/flex';
 import { ContactGrid as Grid } from '../../styles/layouts/grids';
-import { Padding, PaddingBlock, PaddingCustom } from '../../styles/utilities/padding';
+import { Padding, PaddingBlock } from '../../styles/utilities/padding';
 import { DataProps } from '../../types/hook/forms';
 import { checkForm, validate } from '../../helpers/validation';
 import { Success } from '../../components/spec/Success';
 import emailjs from '@emailjs/browser';
+import { SVGHeading } from '../../components/common/SVGHeading';
 
 
 export const Contact = () => {
@@ -143,7 +142,7 @@ export const Contact = () => {
                                     </Field>
                                     <Field>
                                         <FlexAlign $direction='column' $alignItems='start' $justifyContent='center'>
-                                            <Submit> Send Message </Submit>
+                                            <Button variant='submit'> Send Message </Button>
                                         </FlexAlign>
                                     </Field>
                                 </FlexColumn>
@@ -154,13 +153,7 @@ export const Contact = () => {
 
                 <Success toggle={send} close={closeModal} />
 
-                <Container>
-                    <PaddingCustom $block={device === 'mobile' ? 16 : 32} $inline={device === 'mobile' ? 8 : 32}>
-                        <FlexCenter>
-                            <ContactMe />
-                        </FlexCenter>
-                    </PaddingCustom>
-                </Container>
+                <SVGHeading variant='contact' />
 
             </Grid>
         </Section>

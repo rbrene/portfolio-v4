@@ -29,7 +29,7 @@ export const NavList: React.FC<NavListProps> = ({ items }) => {
 
     return (
         <NavUL>
-            <FlexColumn $gap={device === 'mobile' ? 8 : 4}>
+            <FlexColumn $gap={device === 'mobile' ? 4 : 8}>
                 {
                     trail.map((props, index) => {
                         return (

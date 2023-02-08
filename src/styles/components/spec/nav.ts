@@ -23,7 +23,7 @@ export const NavLI = styled(animated.li)`
     position: relative;
     font-size: ${rem(14)};
     font-family: inherit;
-    font-variation-settings: 'wght' 400;
+    font-variation-settings: 'wght' 500;
     text-transform: uppercase;
     text-align: right;
     letter-spacing: 0.2ch;

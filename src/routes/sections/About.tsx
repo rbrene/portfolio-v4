@@ -1,14 +1,13 @@
 import { useContext } from 'react';
 import { SectionsContext } from '../../context';
-import { ReactComponent as AboutMe } from '../../assets/svg/about-me.svg';
 import { Section } from '../../styles/components/common/section';
 import { AboutGrid as Grid } from '../../styles/layouts/grids';
-import { SVGContainer as Container } from '../../styles/layouts/containers';
-import { Padding, PaddingCustom } from '../../styles/utilities/padding';
+import { Padding } from '../../styles/utilities/padding';
 import { useDeviceQuery } from '../../hooks/useDeviceQuery';
-import { FlexAlign, FlexCenter } from '../../styles/layouts/flex';
+import { FlexAlign } from '../../styles/layouts/flex';
 import Article from '../../styles/layouts/articles';
 import { H2, P, Title } from '../../styles/global/typography';
+import { SVGHeading } from '../../components/common/SVGHeading';
 
 
 export const About = () => {
@@ -38,16 +37,7 @@ export const About = () => {
                     </Padding>
                 </Article>
 
-                <Container>
-                    <PaddingCustom
-                        $block={device === 'mobile' ? 16 : 32}
-                        $inline={device === 'mobile' ? 8 : 32}
-                    >
-                        <FlexCenter>
-                            <AboutMe />
-                        </FlexCenter>
-                    </PaddingCustom>
-                </Container>
+                <SVGHeading variant='about' />
             </Grid>
         </Section>
     )
