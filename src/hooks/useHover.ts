@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 
-export function useHover() {
+export default function useHook() {
     const [hover, setHover] = useState<boolean>(false);
-    const mouseEnter = (e: React.MouseEvent) => setHover(true);
-    const mouseLeave = (e: React.MouseEvent) => setHover(false);
+    const mouseEnter = () => setHover(true);
+    const mouseLeave = () => setHover(false);
 
-    return { hover, mouseEnter, mouseLeave }
+    return { hover, mouseEnter, mouseLeave };
 }

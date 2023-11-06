@@ -1,17 +1,23 @@
-import { em, viewportDimensions } from './units';
+import unit, { dimensions } from './units';
 
 
-export const media = {
+const hMedia = {
+    hd: {
+        min: `(min-width: ${unit.em(dimensions.hd)})`,
+        max: `(max-width: ${unit.em(dimensions.hd)})`
+    },
     desktop: {
-        min: `(min-width: ${em(viewportDimensions.desktop)})`,
-        max: `(max-width: ${em(viewportDimensions.desktop)})`
+        min: `(min-width: ${unit.em(dimensions.desktop)})`,
+        max: `(max-width: ${unit.em(dimensions.desktop)})`
     },
     tablet: {
-        min: `(min-width: ${em(viewportDimensions.tablet)})`,
-        max: `(max-width: ${em(viewportDimensions.tablet)})`
+        min: `(min-width: ${unit.em(dimensions.tablet)})`,
+        max: `(max-width: ${unit.em(dimensions.tablet)})`
     },
     mobile: {
-        min: `(min-width: ${em(viewportDimensions.mobile)})`,
-        max: `(max-width: ${em(viewportDimensions.mobile)})`
+        min: `(min-width: ${unit.em(dimensions.mobile)})`,
+        max: `(max-width: ${unit.em(dimensions.mobile)})`
     }
-}
+};
+
+export default hMedia;

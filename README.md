@@ -1,1 +1,0 @@
-# React Type Template

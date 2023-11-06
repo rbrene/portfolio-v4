@@ -1,17 +1,21 @@
-type Dimensions = {
+interface IVWDimension {
+    hd: number;
     desktop: number;
     tablet: number;
-    mobile: number;
-}
+    mobile: 480;
+};
 
-export const viewportDimensions: Dimensions = {
-    desktop: 1360,
-    tablet: 1080,
-    mobile: 720
-}
+export const dimensions: IVWDimension = {
+    hd: 1660,
+    desktop: 1080,
+    tablet: 720,
+    mobile: 480
+};
 
-export const px = (u: number) => `${u * 16}px`;
+const hUnit = {
+    em: (u: number) => `${u / 16}em`,
+    rem: (u: number) => `${u / 16}rem`,
+    px: (u: number) => `${u * 16}px`
+};
 
-export const rem = (u: number) => `${u / 16}rem`;
-
-export const em = (u: number) => `${u / 16}em`;
+export default hUnit;

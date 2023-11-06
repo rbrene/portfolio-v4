@@ -1,6 +1,6 @@
 {
   "short_name": "Raees Ahmed Brene",
-  "name": "Raees Brene | Web Developer",
+  "name": "Raees Ahmed Brene | Front-End Web Developer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#FFFFFF",
+  "background_color": "#171717"
 }

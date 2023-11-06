@@ -1,16 +1,14 @@
-import { forwardRef } from 'react';
-import { SectionProps } from '../../../types/components/section';
-import { SectionRef } from '../../../types/context/sections';
-import { Section as Element } from '../../../styles/components/common/section';
+import React from 'react';
+import { ISection } from './types';
+import { SCSection as Element } from './styles';
 
 
-export const Section = forwardRef<SectionRef, SectionProps>(({ id, children }, ref?) => {
+const Component: React.FC<ISection> = ({ id, children, background, color }) => {
     return (
-        <Element
-            id={id}
-            ref={ref}
-        >
+        <Element id={id} $background={background} $color={color}>
             {children}
         </Element>
     )
-})
+};
+
+export default Component;
