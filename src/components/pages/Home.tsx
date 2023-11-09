@@ -20,7 +20,7 @@ const Page = () => {
                             size='contain'
                             position='center right'
                             color='var(--primary-minor)'
-                            blend='screen'
+                            blend='soft-light'
                             opacity={deviceQuery ? 0.2 : 1}
                         />
                     </Content>
