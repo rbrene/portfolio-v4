@@ -14,9 +14,9 @@ export default class color {
     // Converts the 'hue', 'saturation', 'lightness', and 'alpha' values into a hsl() color value & returns it as a string
     hsl() {
         if (this.alpha) {
-            return `hsl(${this.hue}, ${this.saturation}, ${this.lightness}, ${this.alpha})`;
+            return `hsl(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${this.alpha})`;
         } else {
-            return `hsl(${this.hue}, ${this.saturation}, ${this.lightness})`;
+            return `hsl(${this.hue}, ${this.saturation}%, ${this.lightness}%)`;
         }
     }
 
@@ -64,15 +64,15 @@ export default class color {
 
     // Converts the HSL string with the specified alpha value.
     transitionAlpha(alpha: number) {
-        return `hsl(${this.hue}, ${this.saturation}, ${this.lightness}, ${alpha})`;
+        return `hsl(${this.hue}, ${this.saturation}%, ${this.lightness}%, ${alpha})`;
     }
 
     // Converts the color to an HSL or HSLA string.
     transitionColor(hue: number, saturation: number, lightness: number, alpha?: number) {
         if (alpha) {
-            return `hsl(${hue}, ${saturation}, ${lightness}, ${alpha})`;
+            return `hsl(${hue}, ${saturation}%, ${lightness}%, ${alpha})`;
         } else if (!alpha) {
-            return `hsl(${hue}, ${saturation}, ${lightness})`;
+            return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
         }
     }
 };

@@ -4,7 +4,8 @@ import { Element } from './styles';
 import { useInView } from 'react-intersection-observer';
 import { CLoader } from '../../context';
 import { useSpring } from 'react-spring';
-import { handleLetterSpacing } from '../../../helpers';
+import { color } from '../../../helpers';
+;
 
 
 const Route: React.FC<IRouterLink> = ({ title, path }) => {
@@ -15,9 +16,21 @@ const Route: React.FC<IRouterLink> = ({ title, path }) => {
     });
     const [spring, api] = useSpring(() => ({
         from: {
-            opacity: 0
+            opacity: 0,
         }
     }));
+
+    const mouseenter = () => {
+        api.start({
+            opacity: 0.8
+        })
+    };
+
+    const mouseleave = () => {
+        api.start({
+            opacity: 1
+        })
+    };
 
     React.useEffect(() => {
         if (transition === true) {
@@ -45,6 +58,8 @@ const Route: React.FC<IRouterLink> = ({ title, path }) => {
             onClick={click}
             children={title}
             style={spring}
+            onMouseEnter={mouseenter}
+            onMouseLeave={mouseleave}
         />
     );
 };
@@ -57,9 +72,22 @@ const Download: React.FC<IDownloadLink> = ({ title, file }) => {
     });
     const [spring, api] = useSpring(() => ({
         from: {
-            opacity: 0
+            opacity: 0,
         }
     }));
+
+    const mouseenter = () => {
+        api.start({
+            opacity: 0.8
+        })
+    };
+
+    const mouseleave = () => {
+        api.start({
+            opacity: 1
+        })
+    };
+
 
     React.useEffect(() => {
         if (transition === true) {
@@ -81,6 +109,8 @@ const Download: React.FC<IDownloadLink> = ({ title, file }) => {
             href={file}
             children={title}
             style={spring}
+            onMouseEnter={mouseenter}
+            onMouseLeave={mouseleave}
             download
         />
     );
@@ -94,9 +124,22 @@ const MailTo: React.FC<IMailToLink> = ({ title, email }) => {
     });
     const [spring, api] = useSpring(() => ({
         from: {
-            opacity: 0
+            opacity: 0,
         }
     }));
+
+    const mouseenter = () => {
+        api.start({
+            opacity: 0.8
+        })
+    };
+
+    const mouseleave = () => {
+        api.start({
+            opacity: 1
+        })
+    };
+
 
     React.useEffect(() => {
         if (transition === true) {
@@ -118,12 +161,15 @@ const MailTo: React.FC<IMailToLink> = ({ title, email }) => {
             href={`mailto:${email}`}
             children={title}
             style={spring}
+            onMouseEnter={mouseenter}
+            onMouseLeave={mouseleave}
         />
     );
 };
 
 
 const Tel: React.FC<ITelLink> = ({ title, tel }) => {
+    const textFill = React.useMemo(() => new color(40, 100, 67), []);
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
         threshold: 1,
@@ -131,9 +177,24 @@ const Tel: React.FC<ITelLink> = ({ title, tel }) => {
     });
     const [spring, api] = useSpring(() => ({
         from: {
-            opacity: 0
+            opacity: 0,
+            color: textFill.transitionAlpha(0),
+            backgroundSize: '200%'
         }
     }));
+
+    const mouseenter = () => {
+        api.start({
+            opacity: 0.8
+        })
+    };
+
+    const mouseleave = () => {
+        api.start({
+            opacity: 1
+        })
+    };
+
 
     React.useEffect(() => {
         if (transition === true) {
@@ -155,6 +216,8 @@ const Tel: React.FC<ITelLink> = ({ title, tel }) => {
             href={`tel:${tel}`}
             children={title}
             style={spring}
+            onMouseEnter={mouseenter}
+            onMouseLeave={mouseleave}
         />
     );
 };
