@@ -3,7 +3,7 @@ import { useDevice } from '../../../hooks';
 import { dimensions } from '../../../helpers';
 import { Element } from './styles';
 import { ISocialItem } from './types';
-import { useSpring, useTrail } from 'react-spring';
+import { useSpring, useTrail, config } from 'react-spring';
 import { data } from '../../../data';
 import { CLoader } from '../../context';
 
@@ -70,6 +70,7 @@ const Component: React.FC = () => {
             y: startTrail ? 0 : 32,
             scale: startTrail ? 1 : 0
         },
+        config: config.gentle
     })
 
     return !deviceQuery ? (

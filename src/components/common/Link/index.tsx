@@ -11,7 +11,7 @@ import { color } from '../../../helpers';
 const Route: React.FC<IRouterLink> = ({ title, path }) => {
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({
@@ -67,7 +67,7 @@ const Route: React.FC<IRouterLink> = ({ title, path }) => {
 const Download: React.FC<IDownloadLink> = ({ title, file }) => {
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({
@@ -119,7 +119,7 @@ const Download: React.FC<IDownloadLink> = ({ title, file }) => {
 const MailTo: React.FC<IMailToLink> = ({ title, email }) => {
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({
@@ -172,7 +172,7 @@ const Tel: React.FC<ITelLink> = ({ title, tel }) => {
     const textFill = React.useMemo(() => new color(40, 100, 67), []);
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({

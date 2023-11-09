@@ -15,7 +15,7 @@ const Component: React.FC<ICParagraph> = ({ marginblock, width, align, children,
     };
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({

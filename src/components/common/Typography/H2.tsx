@@ -10,7 +10,7 @@ const Component: React.FC<ICHeading> = ({ children, title }) => {
     if (title && children) throw new Error(`'children' and 'title' prop cannot be defined at the same time`);
     const { transition } = React.useContext(CLoader);
     const { ref, inView } = useInView({
-        threshold: 1,
+        threshold: 0.8,
         triggerOnce: true,
     });
     const [spring, api] = useSpring(() => ({
