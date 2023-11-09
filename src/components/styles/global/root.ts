@@ -17,12 +17,13 @@ const GlobalRoot = createGlobalStyle`
     --secondary-minor: hsl(0, 0%, 100%);
     --secondary-minor-hsl: 260, 100%, 100%;
     --accent-main: hsl(40, 100%, 67%);
-    --accent-main-hsl: 260, 100%, 63%;
+    --accent-main-hsl: 40, 100%, 67%;
     --accent-main-light: hsl(40, 100%, 90%);
-    --accent-main-light-hsl: 260, 100%, 90%;
+    --accent-main-light-hsl: 40, 100%, 90%;
     --accent-primary: hsl(40, 48%, 67%);
-    --accent-primary-hsl: 40, 100%, 63%;
+    --accent-primary-hsl: 40, 48%, 67%;
     --accent-primary-dark: hsl(40, 48%, 43%);
+    --accent-primary-dark-hsl: 40, 48%, 43%;
 
     /* 
     =======================

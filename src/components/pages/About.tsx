@@ -28,9 +28,15 @@ const Page = () => {
                             </div>
                             <div>
                                 <Typography.P
-                                    width={60}
+                                    width={55}
                                     align={deviceQuery ? 'left' : 'left'}
-                                    text='I am a passionate front-end web developer with a love for crafting captivating digital experiences, good web design and bringing form and function to the web. As a Muslim my service lies in the establishment or elevation of the digital presences of businesses or organization’s that benefits or provides a positive impact on society or communities.'
+                                    text='I am a passionate front-end web developer with a love for crafting captivating digital experiences, good web design and bringing form and function to the web.'
+                                />
+                                <Typography.P
+                                    marginblock={[8, 0]}
+                                    width={55}
+                                    align={deviceQuery ? 'left' : 'left'}
+                                    text='As a Muslim my service lies in the establishment or elevation of the digital presences of businesses or organization’s that benefits or provides a positive impact on society or communities.'
                                 />
                             </div>
                             <div>

@@ -10,3 +10,5 @@ export { default as Link } from './common/Link';
 export { default as FlexLayout } from './layouts/Flex';
 export { default as GridLayout } from './layouts/Grid';
 export { default as SocialMedia } from './spec/SocialMedia';
+export { default as Loader } from './spec/Loader';
+export { default as PreLoader } from './context/Providers/LoadingProvider';

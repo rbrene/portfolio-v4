@@ -1,6 +1,10 @@
 import { TChildren, TTextAlign } from './../../../../types/index';
 
 
+export interface ICHeadingOne {
+    children?: string | TChildren;
+    title: string;
+}
 export interface ICHeading {
     children?: string | TChildren;
     title?: string;

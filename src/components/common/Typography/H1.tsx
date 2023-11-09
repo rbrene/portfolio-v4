@@ -1,15 +1,32 @@
 import React from 'react';
-import { ICHeading } from './types';
-import { SCH1 } from './styles';
+import { ICHeadingOne } from './types';
+import { SCH1, SCWord, SCWordContainer } from './styles';
+import { useTrail } from 'react-spring';
+import { CLoader } from '../../context';
 
 
-const Component: React.FC<ICHeading> = ({ children, title }) => {
-
+const Component: React.FC<ICHeadingOne> = ({ children, title }) => {
+    const { transition } = React.useContext(CLoader);
     if (title && children) throw new Error(`'children' and 'title' prop cannot be defined at the same time`);
+    const wordsArray = title.split(' ');
+    const trail = useTrail(wordsArray.length, {
+        from: {
+            y: '-100%',
+            opacity: 0
+        },
+        to: {
+            y: transition === true ? '0%' : '-100%',
+            opacity: 1
+        }
+    });
 
     return (
         <SCH1>
-            {title ? title : children}
+            {trail.map((spring, key) => (
+                <SCWordContainer key={key}>
+                    <SCWord children={wordsArray[key]} style={spring} />
+                </SCWordContainer>
+            ))}
         </SCH1>
     );
 };

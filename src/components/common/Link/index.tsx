@@ -1,9 +1,38 @@
 import * as React from 'react';
 import { IRouterLink, IDownloadLink, IMailToLink, ITelLink, ILink } from './types';
 import { Element } from './styles';
+import { useInView } from 'react-intersection-observer';
+import { CLoader } from '../../context';
+import { useSpring } from 'react-spring';
+import { handleLetterSpacing } from '../../../helpers';
 
 
 const Route: React.FC<IRouterLink> = ({ title, path }) => {
+    const { transition } = React.useContext(CLoader);
+    const { ref, inView } = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [spring, api] = useSpring(() => ({
+        from: {
+            opacity: 0
+        }
+    }));
+
+    React.useEffect(() => {
+        if (transition === true) {
+            if (inView) {
+                api.start({
+                    opacity: 1
+                })
+            } else if (!inView) {
+                api.start({
+                    opacity: 0
+                })
+            }
+        }
+    }, [api, inView, transition]);
+
 
     const click = (e: React.MouseEvent) => {
         e.preventDefault();
@@ -11,37 +40,121 @@ const Route: React.FC<IRouterLink> = ({ title, path }) => {
 
     return (
         <Element.A
+            ref={ref}
             href={path}
             onClick={click}
+            children={title}
+            style={spring}
         />
     );
 };
 
 const Download: React.FC<IDownloadLink> = ({ title, file }) => {
+    const { transition } = React.useContext(CLoader);
+    const { ref, inView } = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [spring, api] = useSpring(() => ({
+        from: {
+            opacity: 0
+        }
+    }));
+
+    React.useEffect(() => {
+        if (transition === true) {
+            if (inView) {
+                api.start({
+                    opacity: 1
+                })
+            } else if (!inView) {
+                api.start({
+                    opacity: 0
+                })
+            }
+        }
+    }, [api, inView, transition]);
+
     return (
         <Element.A
+            ref={ref}
             href={file}
             children={title}
+            style={spring}
             download
         />
     );
 };
 
 const MailTo: React.FC<IMailToLink> = ({ title, email }) => {
+    const { transition } = React.useContext(CLoader);
+    const { ref, inView } = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [spring, api] = useSpring(() => ({
+        from: {
+            opacity: 0
+        }
+    }));
+
+    React.useEffect(() => {
+        if (transition === true) {
+            if (inView) {
+                api.start({
+                    opacity: 1
+                })
+            } else if (!inView) {
+                api.start({
+                    opacity: 0
+                })
+            }
+        }
+    }, [api, inView, transition]);
+
     return (
         <Element.A
+            ref={ref}
             href={`mailto:${email}`}
             children={title}
+            style={spring}
         />
     );
 };
 
 
 const Tel: React.FC<ITelLink> = ({ title, tel }) => {
+    const { transition } = React.useContext(CLoader);
+    const { ref, inView } = useInView({
+        threshold: 1,
+        triggerOnce: true,
+    });
+    const [spring, api] = useSpring(() => ({
+        from: {
+            opacity: 0
+        }
+    }));
+
+    React.useEffect(() => {
+        if (transition === true) {
+            if (inView) {
+                api.start({
+                    opacity: 1
+                })
+            } else if (!inView) {
+                api.start({
+                    opacity: 0
+                })
+            }
+        }
+    }, [api, inView, transition]);
+
     return (
         <Element.A
+            ref={ref}
             href={`tel:${tel}`}
             children={title}
+            style={spring}
         />
     );
 };

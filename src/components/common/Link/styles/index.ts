@@ -5,11 +5,13 @@ import { unit } from '../../../../helpers';
 
 const A = styled(animated.a)`
     position: relative;
+    width: max-content;
     font-size: clamp(${unit.rem(13)}, 2vw, ${unit.rem(16)});
     font-family: inherit;
     font-weight: var(--fw-bold);
     text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
     display: block;
     border: none;
     border-radius: ${unit.rem(3)};

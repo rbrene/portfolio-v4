@@ -6,6 +6,7 @@ import { media, unit } from '../../../../helpers';
 const SocialMedia = styled(animated.div)`
     position: fixed;
     inset: 0;
+    margin-left: auto;
     max-width: ${unit.rem(48)};
     width: 100%;
     height: 100%;
@@ -35,7 +36,7 @@ const Layout = styled(animated.div)`
 const UL = styled(animated.ul)`
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: ${unit.rem(32)};
     z-index: inherit;
 `;
@@ -69,6 +70,7 @@ const Line = styled(animated.div)`
     width: 1px;
     height: ${unit.rem(96)};
     background-color: hsl(var(--secondary-main-hsl), 0.5);
+    transform-origin: bottom;
     z-index: inherit;
 
     &:nth-child(3) {

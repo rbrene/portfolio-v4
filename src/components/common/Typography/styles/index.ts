@@ -17,8 +17,7 @@ export const SCTitle = styled(animated.p)`
 
 export const SCH1 = styled(animated.h1)`
     position: relative;
-    max-width: 8ch;
-    font-size: clamp(${unit.rem(48)}, 5vw, ${unit.rem(96)});
+    font-size: clamp(${unit.rem(60)}, 9vw, ${unit.rem(96)});
     font-family: var(--font-clash-display), var(--font-poppins);
     font-weight: 900;
     text-transform: uppercase;
@@ -32,7 +31,6 @@ export const SCH2 = styled(animated.h2)`
     font-family: var(--font-clash-display), var(--font-poppins);
     font-weight: 800;
     text-transform: uppercase;
-    line-height: 1.1;
     z-index: inherit;
 `;
 
@@ -60,9 +58,9 @@ export const SCP = styled(animated.p) <ISCParagraph>`
     position: relative;
     ${({ $marginblock }) => $marginblock && `margin-block: ${$marginblock}`};
     max-width: ${({ $width }) => $width ? `${$width}ch` : '50ch'};
-    font-size: clamp(${unit.rem(12)}, 2vw, ${unit.rem(16)});
+    font-size: clamp(${unit.rem(14)}, 2vw, ${unit.rem(16)});
     font-family: inherit;
-    font-weight: 400;
+    font-weight: 300;
     ${({ $align }) => $align && `text-align: ${$align}`};
     line-height: 2;
     z-index: inherit;
@@ -70,6 +68,30 @@ export const SCP = styled(animated.p) <ISCParagraph>`
 
 export const SCEmphasize = styled(animated.span)`
     position: relative;
-    color: var(--accent-primary);
+    letter-spacing: 0.1ch;
+    background: linear-gradient(to bottom right, var(--accent-primary) 0%, var(--accent-main) 100%);
+    background-size: 200%;
+    background-position: center center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    z-index: inherit;
+`;
+
+export const SCWordContainer = styled(animated.span)`
+    position: relative;
+    line-height: 1;
+    display: block;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    overflow: clip;
+    z-index: inherit;
+`;
+
+export const SCWord = styled(animated.span)`
+    position: relative;
+    display: block;
+    transform-origin: left;
+    perspective: 1000px;
     z-index: inherit;
 `;

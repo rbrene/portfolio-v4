@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { useDevice } from '../../../hooks';
-import { FaGithub, FaTwitter, FaInstagram, FaEnvelope } from 'react-icons/fa';
 import { dimensions } from '../../../helpers';
 import { Element } from './styles';
 import { ISocialItem } from './types';
-import { useSpring } from 'react-spring';
+import { useSpring, useTrail } from 'react-spring';
+import { data } from '../../../data';
+import { CLoader } from '../../context';
 
 
-const Item: React.FC<ISocialItem> = ({ title, path }) => {
+const Item: React.FC<ISocialItem> = ({ title, path, trail }) => {
     const [{ scale, y }, api] = useSpring(() => ({
         scale: 1,
         y: 0,
@@ -31,13 +32,14 @@ const Item: React.FC<ISocialItem> = ({ title, path }) => {
         <Element.LI
             onMouseEnter={mouseenter}
             onMouseLeave={mouseleave}
-            style={{ scale, y }}
+            style={trail}
         >
             <Element.A
                 href={path}
                 target='_blank'
-                children={title}
                 rel='noreferrer'
+                children={title}
+                style={{ scale, y }}
             />
         </Element.LI>
     )
@@ -45,19 +47,41 @@ const Item: React.FC<ISocialItem> = ({ title, path }) => {
 
 
 const Component: React.FC = () => {
+    const { transition } = React.useContext(CLoader);
+    const [startTrail, setStartTrail] = React.useState(false);
     const device = useDevice();
     const deviceQuery = device <= dimensions.desktop - .2;
+    const { socialMedia } = data;
+    const { scaleY } = useSpring({
+        scaleY: transition ? 1 : 0,
+        config: {
+            duration: 500
+        },
+        onRest: () => {
+            setStartTrail(true)
+        }
+    });
+    const trail = useTrail(socialMedia.length, {
+        from: {
+            y: 32,
+            scale: 0
+        },
+        to: {
+            y: startTrail ? 0 : 32,
+            scale: startTrail ? 1 : 0
+        },
+    })
 
     return !deviceQuery ? (
         <Element.SocialMedia>
             <Element.Layout>
                 <Element.UL>
-                    <Item path='mailto:rbrene786@gmail.com' title={<FaEnvelope />} />
-                    <Item path='https://github.com/rbrene' title={<FaGithub />} />
-                    <Item path='https://twitter.com/rbrene786' title={<FaTwitter />} />
-                    <Item path='https://instagram.com/ra.brene/' title={<FaInstagram />} />
+                    {trail.map((spring, key) => {
+                        const { id, path, Icon } = socialMedia[key];
+                        return <Item key={id} path={path} title={<Icon />} trail={spring} />
+                    })}
                 </Element.UL>
-                <Element.Line />
+                <Element.Line style={{ scaleY }} />
             </Element.Layout>
         </Element.SocialMedia>
     ) : null;

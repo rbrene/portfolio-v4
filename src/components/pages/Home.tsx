@@ -35,6 +35,7 @@ const Page = () => {
                             justifycontent='center'
                         >
                             <div>
+                                <Typography.Title children={<Typography.EM title='Raees Brene' />} />
                                 <Typography.H1
                                     title='Boost your digital presence'
                                 />
