@@ -61,6 +61,7 @@ const Component: React.FC = () => {
             setStartTrail(true)
         }
     });
+
     const trail = useTrail(socialMedia.length, {
         from: {
             y: 32,
