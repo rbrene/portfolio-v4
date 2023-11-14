@@ -17,8 +17,8 @@ export const SCTitle = styled(animated.p)`
 
 export const SCH1 = styled(animated.h1)`
     position: relative;
-    font-size: clamp(${unit.rem(60)}, 9vw, ${unit.rem(96)});
-    font-family: var(--font-clash-display), var(--font-poppins);
+    font-size: clamp(${unit.rem(56)}, 9vw, ${unit.rem(96)});
+    font-family: var(--font-montserrat), var(--font-poppins);
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.1;
@@ -28,7 +28,7 @@ export const SCH1 = styled(animated.h1)`
 export const SCH2 = styled(animated.h2)`
     position: relative;
     font-size: clamp(${unit.rem(32)}, 3vw, ${unit.rem(48)});
-    font-family: var(--font-clash-display), var(--font-poppins);
+    font-family: var(--font-montserrat), var(--font-poppins);
     font-weight: 800;
     text-transform: uppercase;
     z-index: inherit;
@@ -91,7 +91,7 @@ export const SCWordContainer = styled(animated.span)`
 export const SCWord = styled(animated.span)`
     position: relative;
     display: block;
-    transform-origin: left;
+    transform-origin: top;
     perspective: 1000px;
     z-index: inherit;
 `;

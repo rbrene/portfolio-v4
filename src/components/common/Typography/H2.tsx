@@ -15,6 +15,7 @@ const Component: React.FC<ICHeading> = ({ children, title }) => {
     });
     const [spring, api] = useSpring(() => ({
         from: {
+            rotateX: 90,
             y: '-100%',
             opacity: 0
         }
@@ -24,11 +25,13 @@ const Component: React.FC<ICHeading> = ({ children, title }) => {
         if (transition === true) {
             if (inView) {
                 api.start({
+                    rotateX: 0,
                     y: '0%',
                     opacity: 1
                 })
             } else if (!inView) {
                 api.start({
+                    rotateX: 0,
                     y: '-100%',
                     opacity: 0
                 })

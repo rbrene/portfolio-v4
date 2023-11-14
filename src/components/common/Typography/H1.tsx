@@ -11,10 +11,12 @@ const Component: React.FC<ICHeadingOne> = ({ children, title }) => {
     const wordsArray = title.split(' ');
     const trail = useTrail(wordsArray.length, {
         from: {
+            rotateX: 90,
             y: '-100%',
             opacity: 0
         },
         to: {
+            rotateX: transition === true ? 0 : 90,
             y: transition === true ? '0%' : '-100%',
             opacity: 1
         }

@@ -4,10 +4,10 @@ import { useDevice } from '.';
 
 
 function configPadding(device: number) {
-    let padding: number = 32;
+    let padding: number = 16;
 
     if (device <= dimensions.mobile - 0.2 || device <= dimensions.tablet - 0.2) {
-        padding = 32;
+        padding = 16;
     } else if (device >= dimensions.tablet && device <= dimensions.hd - 0.2) {
         padding = 64;
     } else if (device >= dimensions.hd) {

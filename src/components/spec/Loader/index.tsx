@@ -34,7 +34,7 @@ const Component: React.FC = () => {
     return (
         <Element.Loader style={{ clipPath }}>
             <FlexLayout.FlexCenter>
-                <Content width={unit.rem(1440)} height='100%'>
+                <Content as='div' width={unit.rem(1440)} height='100%'>
                     <FlexLayout.FlexCenter gap={16}>
                         <Element.Loading children='Hang on a second...' />
                         <Element.Progress>

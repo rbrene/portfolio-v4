@@ -30,7 +30,7 @@ const GlobalRoot = createGlobalStyle`
     ---- Font Families ----
     =======================
     */
-    --font-clash-display: 'Clash Display', Helvetica, Arial, system-ui, sans-serif;
+    --font-montserrat: 'Montserrat', Helvetica, Arial, system-ui, sans-serif;
     --font-poppins: 'Poppins', Helvetica, Arial, system-ui, sans-serif;
 
     /* 

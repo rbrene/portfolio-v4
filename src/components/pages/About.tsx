@@ -30,7 +30,7 @@ const Page = () => {
                                 <Typography.P
                                     width={55}
                                     align={deviceQuery ? 'left' : 'left'}
-                                    text='I am a passionate front-end web developer with a love for crafting captivating digital experiences, good web design and bringing form and function to the web.'
+                                    text='My name is Raees Brene. I am a passionate front-end web developer with a love for crafting captivating digital experiences, good web design and bringing form and function to the web.'
                                 />
                                 <Typography.P
                                     marginblock={[8, 0]}

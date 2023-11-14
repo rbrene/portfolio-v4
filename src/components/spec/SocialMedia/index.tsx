@@ -11,7 +11,7 @@ import { CLoader } from '../../context';
 const Item: React.FC<ISocialItem> = ({ title, path, trail }) => {
     const [{ scale, y }, api] = useSpring(() => ({
         scale: 1,
-        y: 0,
+        y: 0
     }));
 
     const mouseenter = () => {
@@ -57,6 +57,7 @@ const Component: React.FC = () => {
         config: {
             duration: 500
         },
+        delay: 750,
         onRest: () => {
             setStartTrail(true)
         }
